@@ -39,10 +39,15 @@ function importData() {
         .style("height", "40px")
         .style("background-color", "white")
         .style("margin-left", "8px")
+        .style("margin-top", "8px")
         .style("color", "black")
         .style("border", "1px solid black")
         .text(function (d, i) { return d; });
     algoTracerItems = document.querySelectorAll('.algo-trace-item');
+    var pigeonList = document.querySelectorAll(".algo-trace-item");
+    for (let i = 0; i < pigeonList.length; i++) {
+        pigeonList[i].classList.add(`pigeon-${Number(pigeonList[i].innerHTML)}`);
+    }
 }
 
 function drawHoles(range) {
@@ -58,6 +63,7 @@ function drawHoles(range) {
         .enter()
         .append("div")
         .classed("algo-trace-hole", true)
+        .classed("d-flex", true)
         .append("div")
         .classed("algo-trace-index", true)
         .classed("d-flex", true)
@@ -67,6 +73,7 @@ function drawHoles(range) {
         .style("height", "40px")
         .style("background-color", "white")
         .style("margin-left", "8px")
+        .style("margin-top", "8px")
         .style("color", "black")
         .text(function (d, i) { return d; });
 
@@ -77,19 +84,40 @@ function drawHoles(range) {
 }
 
 function putInHole(value, holeNumber) {
-    var hole = d3.select(`hole-${holeNumber}`)
-        .append("div")
-        .classed("algo-trace-index", true)
-        .classed("d-flex", true)
-        .classed("justify-content-center", true)
-        .classed("align-items-center", true)
-        .style("width", "40px")
-        .style("height", "40px")
-        .style("background-color", "white")
-        .style("margin-left", "8px")
-        .style("color", "black")
-        .text(value);
-    console.log(hole);
+    var hole = document.querySelector(`.hole-${holeNumber}`);
+    var pigeon = document.querySelector(`.pigeon-${value}`);
+    hole.append(pigeon);
+    // console.log(pigeon);
+    // var hole = d3.select(`hole-${holeNumber}`)
+    //     .append("div")
+    //     .classed("algo-trace-index", true)
+    //     .classed("d-flex", true)
+    //     .classed("justify-content-center", true)
+    //     .classed("align-items-center", true)
+    //     .style("width", "40px")
+    //     .style("height", "40px")
+    //     .style("background-color", "white")
+    //     .style("margin-left", "8px")
+    //     .style("color", "black")
+    //     .text(value);
+    // console.log(hole);
+}
+
+async function sorting() {
+    var arrayList = document.querySelector(".algo-trace-array");
+    var holesList = document.querySelector(".algo-trace-holes");
+    for (var i = 0; i < holesList.childElementCount; i++) {
+        var hole = document.querySelector(`.hole-${i}`);
+        // if (hole.hasChildNodes()) {
+        var holePigeon = hole.children;
+        var length = holePigeon.length;
+        
+        for (var j = 1; j < length; j++) {
+            arrayList.append(holePigeon[1]);
+            await sleep(500);            
+        }
+        // }
+    }
 }
 
 async function run() {
