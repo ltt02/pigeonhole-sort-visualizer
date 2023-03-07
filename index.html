@@ -33,19 +33,27 @@
         <div class="row mt-2">
             <div class="col-8 algo-trace mb-2">
                 <!-- <svg></svg> -->
-                <div class="algo-trace-array d-flex"></div>
+                <div class="array-container">
+                    <div class="algo-trace-array d-flex"></div>
+                </div>
                 <div class="algo-trace-holes"></div>
             </div>
             <div class="col-4 editor-container position-relative">
-                <div id="editor" class="position-absolute w-100 h-100">const heading =
-                    document.querySelector("#editor-heading");</div>
+                <div id="editor" class="position-absolute w-100"></div>
             </div>
         </div>
     </main>
-    <label for="">Input: </label>
-    <input type="text" name="" id="input-data">
-    <button onclick="importData();">Import</button>
-    <button onclick="run();">Run</button>
+    <div class="media-controls d-flex w-100 justify-content-center">
+        <div class="">
+            <label for="">Input: </label>
+            <input type="text" name="" id="input-data">
+            <button onclick="importData();">Import</button>
+        </div>
+        <div class="mx-5 float-end">
+            <button onclick="run();">Run</button>
+        </div>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
         integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
@@ -59,7 +67,8 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="src/js/script.js"></script>
-    <script src="src/js/ui.js"></script>
+    <script src="src/js/render.js"></script>
+    <script src="src/js/ace.js"></script>
 
 </body>
 
