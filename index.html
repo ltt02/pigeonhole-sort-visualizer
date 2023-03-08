@@ -43,15 +43,30 @@
             </div>
         </div>
     </main>
-    <div class="media-controls d-flex w-100 justify-content-center">
+    <div class="media-controls d-flex w-100 justify-content-start align-items-center background-dark">
         <div class="">
             <label for="">Input: </label>
             <input type="text" name="" id="input-data">
             <button onclick="importData();">Import</button>
         </div>
-        <div class="mx-5 float-end">
-            <button onclick="run();">Run</button>
+        <div class="mx-5 float-end d-flex align-items-center">
+            <button onclick="run();">
+                <i class="fa-solid fa-backward-fast"></i>
+            </button>
+            <button onclick="run();">
+                <i class="fa-solid fa-backward"></i>
+            </button>
+            <button onclick="run();">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button onclick="run();">
+                <i class="fa-solid fa-forward"></i>
+            </button>
+            <button onclick="run();">
+                <i class="fa-solid fa-forward-fast"></i>
+            </button>
         </div>
+        <input type="range" name="" id="progress" class="progress" value="0" step="1" min="0" max="100" >
     </div>
 
 
