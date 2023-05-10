@@ -31,45 +31,332 @@
 
     <main class="container-fluid">
         <div class="row mt-2">
-            <div class="col-8 algo-trace mb-2">
+            <div class="col-6 col-lg-7 algo-trace mb-2">
                 <!-- <svg></svg> -->
+                <div class="key-selection-label d-flex">
+                    <div class="pigeon-selected-label"></div>
+                    <div class="minus-selection-label"></div>
+                    <div class="min-selection-label"></div>
+                    <div class="equal-selection-label"></div>
+                    <div class="hole-selected-label"></div>
+                </div>
+                <div class="key-selection d-flex">
+                    <div class="pigeon-selected"></div>
+                    <div class="minus-selection"></div>
+                    <div class="min-selection"></div>
+                    <div class="equal-selection"></div>
+                    <div class="hole-selected"></div>
+                </div>
                 <div class="array-container">
                     <div class="algo-trace-array d-flex"></div>
                 </div>
                 <div class="algo-trace-holes"></div>
+
             </div>
-            <div class="col-4 editor-container position-relative">
-                <div id="editor" class="position-absolute w-100"></div>
+            <div class="col-6 col-lg-5 editor-container position-relative">
+                <div class="key-label d-flex">
+                    <div class="max-label"></div>
+                    <div class="minus-label"></div>
+                    <div class="min-label"></div>
+                    <div class="plus-label"></div>
+                    <div class="blank-1-label"></div>
+                    <div class="equal-label"></div>
+                    <div class="blank-range-label"></div>
+                    <div class="range-label"></div>
+                </div>
+                <div class="key-data d-flex">
+                    <div class="max"></div>
+                    <div class="minus"></div>
+                    <div class="min"></div>
+                    <div class="plus"></div>
+                    <div class="blank-1"></div>
+                    <div class="equal"></div>
+                    <div class="blank-range"></div>
+                    <div class="range"></div>
+                </div>
+                <div class="code-toggle-btn">
+                    <i class="fa-solid fa-angle-up code-toggle-icon code-toggle-icon-up"></i>
+                    <i class="fa-solid fa-angle-down code-toggle-icon code-toggle-icon-down" style="display: none;"></i>
+                </div>
+                <div id="editor" class="bg-dark position-fixed text-white" style="display: none;">
+                    <div class="line-1 selected">
+                        <span class="line-number position-absolute">1</span>
+                        &emsp;&emsp;
+                        <span class="code-keyword">function</span>
+                        <span class="code-def">pigeonholeSort</span>(<span class="code-def">arr</span>,
+                        <span class="code-def">n</span>) {
+                    </div>
+                    <div class="line-2">
+                        <span class="line-number position-absolute">2</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">let</span>
+                        <span class="code-def">min</span> =
+                        <span class="code-keyword">Number</span>(<span class="code-def">arr</span>[<span
+                            class="code-number">0</span>].<span class="code-property">innerHTML</span>);
+                    </div>
+                    <div class="line-3">
+                        <span class="line-number position-absolute">3</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">let</span>
+                        <span class="code-def">max</span> =
+                        <span class="code-keyword">Number</span>(<span class="code-def">arr</span>[<span
+                            class="code-number">0</span>].<span class="code-property">innerHTML</span>);
+                    </div>
+                    <div class="line-4">
+                        <span class="line-number position-absolute">4</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">let</span>
+                        <span class="code-def">range</span>;
+                    </div>
+                    <div class="line-5">
+                        <span class="line-number position-absolute">5</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">for</span>
+                        (<span class="code-keyword">let</span>
+                        <span class="code-def">i</span> =
+                        <span class="code-number">0</span>,
+                        <span class="code-def">i</span>
+                        < <span class="code-def">n</span>,
+                            <span class="code-def">i</span>++) {
+                    </div>
+                    <div class="line-6">
+                        <span class="line-number position-absolute">6</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">let</span>
+                        <span class="code-def">pigeon</span> =
+                        <span class="code-def">arr</span>[<span class="code-def">i</span>];
+                    </div>
+                    <div class="line-7">
+                        <span class="line-number position-absolute">7</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">let</span>
+                        <span class="code-def">pigeonValue</span> =
+                        <span class="code-keyword">Number</span>(<span class="code-def">pigeon</span>.<span
+                            class="code-property">innerHTML</span>);
+                    </div>
+                    <div class="line-8">
+                        <span class="line-number position-absolute">8</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (<span class="code-def">pigeonValue</span> >
+                        <span class="code-def">max</span>)
+                        <span class="code-def">max</span> =
+                        <span class="code-def">pigeonValue</span>;
+                    </div>
+                    <div class="line-9">
+                        <span class="line-number position-absolute">9</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (<span class="code-def">pigeonValue</span>
+                        < <span class="code-def">min</span>)
+                            <span class="code-def">min</span> =
+                            <span class="code-def">pigeonValue</span>;
+                    </div>
+                    <div class="line-10">
+                        <span class="line-number position-absolute">10</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (!<span class="code-def">pigeon</span>.<span class="code-property">classList</span>.<span
+                            class="code-property">contains</span>(<span class="code-string">"marked"</span>)) {
+                    </div>
+                    <div class="line-11">
+                        <span class="line-number position-absolute">11</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-def">pigeon</span>.<span class="code-property">style</span>.<span
+                            class="code-property">transform</span> =
+                        <span class="code-string">"translateY(-3px)"</span>;
+                    </div>
+                    <div class="line-12">
+                        <span class="line-number position-absolute">12</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-def">pigeon</span>.<span class="code-property">style</span>.<span
+                            class="code-property">transform</span> =
+                        <span class="code-string">"translateY(3px)"</span>;
+                    </div>
+                    <div class="line-13">
+                        <span class="line-number position-absolute">13</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                    </div>
+                    <div class="line-14">
+                        <span class="line-number position-absolute">14</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-def">pigeon</span>.<span class="code-property">classList</span>.<span
+                            class="code-property">add</span>(<span class="code-string">"marked"</span>);
+                    </div>
+                    <div class="line-15">
+                        <span class="line-number position-absolute">15</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                    </div>
+                    <div class="line-16">
+                        <span class="line-number position-absolute">16</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">createLabel</span>();
+                    </div>
+                    <div class="line-17">
+                        <span class="line-number position-absolute">17</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">getData</span>(<span class="code-def">max</span>,
+                        <span class="code-def">max</span>,
+                        <span class="code-def">max</span> -
+                        <span class="code-def">min</span> +
+                        <span class="code-number">1</span>);
+                    </div>
+                    <div class="line-18">
+                        <span class="line-number position-absolute">18</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (<span class="code-keyword">$</span>(<span
+                            class="code-string">'.algo-trace-holes.created'</span>).<span
+                            class="code-property">length</span> ==
+                        <span class="code-number">0</span>) {
+                    </div>
+                    <div class="line-19">
+                        <span class="line-number position-absolute">19</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-def">range</span> =
+                        <span class="code-def">max</span> -
+                        <span class="code-def">min</span> +
+                        <span class="code-number">1</span>;
+                    </div>
+                    <div class="line-20">
+                        <span class="line-number position-absolute">20</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">drawHoles</span>(<span class="code-def">range</span>);
+                    </div>
+                    <div class="line-21">
+                        <span class="line-number position-absolute">21</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">$</span>(<span class="code-string">'.algo-trace-holes'</span>).<span
+                            class="code-property">addClass</span>(<span class="code-string">"created"</span>);
+                    </div>
+                    <div class="line-22">
+                        <span class="line-number position-absolute">22</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                    </div>
+                    <div class="line-23">
+                        <span class="line-number position-absolute">23</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (<span class="code-keyword">$</span>(<span
+                            class="code-string">'.algo-trace-holes.filled'</span>).<span
+                            class="code-property">length</span> ==
+                        <span class="code-number">0</span>) {
+                    </div>
+                    <div class="line-24">
+                        <span class="line-number position-absolute">24</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">createSelectionLabel</span>();
+                    </div>
+                    <div class="line-25">
+                        <span class="line-number position-absolute">25</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">for</span>
+                        (<span class="code-keyword">let</span>
+                        <span class="code-def">i</span> =
+                        <span class="code-number">0</span>,
+                        <span class="code-def">i</span>
+                        < <span class="code-def">n</span>,
+                            <span class="code-def">i</span>++) {
+                    </div>
+                    <div class="line-26">
+                        <span class="line-number position-absolute">26</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">var</span>
+                        <span class="code-def">pigeon</span> =
+                        <span class="code-def">arr</span>[<span class="code-def">i</span>];
+                    </div>
+                    <div class="line-27">
+                        <span class="line-number position-absolute">27</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">var</span>
+                        <span class="code-def">pigeonValue</span> =
+                        <span class="code-keyword">Number</span>(<span class="code-def">pigeon</span>.<span
+                            class="code-property">innerHTML</span>);
+                    </div>
+                    <div class="line-28">
+                        <span class="line-number position-absolute">28</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">var</span>
+                        <span class="code-def">holeNumber</span> =
+                        <span class="code-keyword">Number</span>(<span class="code-def">pigeon</span>.<span
+                            class="code-property">innerHTML</span>) -
+                        <span class="code-def">min</span>;
+                    </div>
+                    <div class="line-29">
+                        <span class="line-number position-absolute">29</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (!<span class="code-def">pigeon</span>.<span class="code-property">classList</span>.<span
+                            class="code-property">contains</span>(<span class="code-string">"in-hole"</span>)) {
+                    </div>
+                    <div class="line-30">
+                        <span class="line-number position-absolute">30</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">getSelection</span>(<span class="code-def">pigeonValue</span>,
+                        <span class="code-def">min</span>);
+                    </div>
+                    <div class="line-31">
+                        <span class="line-number position-absolute">31</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">putInHole</span>(<span class="code-def">pigeon</span>,
+                        <span class="code-def">holeNumber</span>);
+                    </div>
+                    <div class="line-32">
+                        <span class="line-number position-absolute">32</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                    </div>
+                    <div class="line-33">
+                        <span class="line-number position-absolute">33</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                    </div>
+                    <div class="line-34">
+                        <span class="line-number position-absolute">34</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">$</span>(<span class="code-string">'.algo-trace-holes'</span>).<span
+                            class="code-property">addClass</span>(<span class="code-string">"filled"</span>);
+                    </div>
+                    <div class="line-35">
+                        <span class="line-number position-absolute">35</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}
+                    </div>
+                    <div class="line-36">
+                        <span class="line-number position-absolute">36</span>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <span class="code-keyword">if</span>
+                        (!<span class="code-def">isPaused</span>)
+                        <span class="code-keyword">takePigeon</span>();
+                    </div>
+                    <div class="line-37">
+                        <span class="line-number position-absolute">37</span>
+                        &emsp;&emsp;&emsp;}
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
-    <div class="media-controls d-flex w-100 justify-content-start align-items-center background-dark">
+    <div
+        class="media-controls w-100 d-flex flex-nowrap justify-content-center align-items-center w-100 bg-dark text-white position-fixed p-2">
         <div class="">
             <label for="">Input: </label>
             <input type="text" name="" id="input-data">
             <button onclick="importData();">Import</button>
+            <input type="file" name="" id="inputfile">
         </div>
-        <div class="mx-5 float-end d-flex align-items-center">
-            <button onclick="run();">
-                <i class="fa-solid fa-backward-fast"></i>
-            </button>
-            <button onclick="run();">
-                <i class="fa-solid fa-backward"></i>
-            </button>
-            <button onclick="run();">
+        <div class="flex-grow-1">
+            <div id="play-btn">
                 <i class="fa-solid fa-play"></i>
-            </button>
-            <button onclick="run();">
-                <i class="fa-solid fa-forward"></i>
-            </button>
-            <button onclick="run();">
-                <i class="fa-solid fa-forward-fast"></i>
-            </button>
+            </div>
+            <div id="stop-btn" style="display:none;">
+                <i class="fa-solid fa-pause"></i>
+            </div>
         </div>
-        <input type="range" name="" id="progress" class="progress" value="0" step="1" min="0" max="100" >
+        <div class="speed-control d-flex">
+            <input class="mx-2" type="range" id="progress" class="progress" value="1" min="0.25" max="2" step="0.25"
+                oninput="this.nextElementSibling.value = 'Speed x' + (Math.round(this.value * 100) / 100).toFixed(2)">
+            <output class="mx-2 position-relative" id="speed-value">Speed x1.00</output>
+        </div>
     </div>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
         integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -81,10 +368,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="src/js/file.js"></script>
+    <script src="src/js/control.js"></script>
     <script src="src/js/script.js"></script>
     <script src="src/js/render.js"></script>
-    <script src="src/js/ace.js"></script>
-
+    <!-- <script src="src/js/ace.js"></script> -->
 </body>
 
 </html>

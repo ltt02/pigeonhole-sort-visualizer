@@ -1,10 +1,55 @@
+@media screen and (max-width: 900px) and (min-width: 600px) {
+    #editor {
+        bottom: -19px;
+        width: 50.63%;
+        height: 446px;
+        font-family: monospace;
+        overflow-y: scroll;
+        font-size: 0.8rem;
+        right: -68px;
+        transform: scale(0.7);
+    }
+
+    .media-controls {
+        font-size: 0.8rem;
+    }
+
+    #play-btn,
+    #stop-btn {
+        margin-left: 0;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    #editor {
+        right: -17px;
+        bottom: 48px;
+        width: 36.63%;
+        height: 400px;
+        font-family: monospace;
+        overflow-y: scroll;
+        font-size: 0.8rem;
+    }
+
+    #play-btn,
+    #stop-btn {
+        margin-left: 25%;
+        cursor: pointer;
+    }
+}
+
+body {
+    /* background-color: #ccc; */
+}
+
 svg {
     width: 100%;
     height: 300px;
 }
 
 main {
-    height: 640px;
+    height: 780px;
 }
 
 .array-container {
@@ -20,15 +65,68 @@ main {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
 
-#editor {
-    position: absolute;
-    width: 500px;
-    height: 550px;
+/* #editor {
+    bottom: 50px;
+    width: 97.63%;
+    height: 555px;
+    font-family: monospace;
+    overflow-y: scroll;
+    font-size: 0.8rem;
+} */
+
+.code-toggle-btn {
+    position: fixed;
+    bottom: 47px;
+    right: 0px;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.code-toggle-icon {
+    color: white;
+    padding: 0 12px;
+}
+
+#editor>.selected {
+    background-color: #333;
+}
+
+.line-number {
+    left: 0;
+    width: 21px;
+    color: #6c6e75;
+    text-align: right;
+    min-width: 20px;
+    padding: 0 3px 0 5px;
+    white-space: nowrap;
+}
+
+.code-keyword {
+    color: #ddca7e;
+}
+
+.code-def {
+    color: #809bbd;
+}
+
+.code-number {
+    color: #d0782a;
+}
+
+.code-property {
+    color: #9a8297;
+}
+
+.code-string {
+    color: #96b38a;
 }
 
 .media-controls {
@@ -36,4 +134,36 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
+    margin-top: 48px;
+    z-index: 2000;
+}
+
+.fa-play,
+.fa-pause {
+    font-size: 24px;
+    margin-top: 6px;
+}
+
+.algo-trace-array {
+    margin-bottom: 8px;
+}
+
+.algo-trace-item {
+    background-image: url("../img/pigeon_11.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: none;
+    font-weight: 1000;
+}
+
+.algo-trace-index {
+    background-image: url("../img/square.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: none;
+    font-weight: 1000;
+}
+
+.algo-trace-holes {
+    margin-top: 16px;
 }
