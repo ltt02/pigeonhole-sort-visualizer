@@ -13,37 +13,26 @@ var codeBlock = document.querySelector('#editor');
 
 speedControl.onchange = () => {
     speed = speedControl.value;
-    console.log(speed);
 };
 
 playButton.onclick = async () => {    
-    // if($('.algo-trace-array.active').length != 0){ // play
-    //     $('.algo-trace-array.active').removeClass('active');
-    //     isPaused = true;
-    // } else {
-    // }
     isPaused = false;
     stopButton.style.display = 'block';
     playButton.style.display = 'none';
     pigeonholeSort(algoTracerItems, algoTracerItems.length);
-    // if (state.timeoutId === 0) {
-        // state.timeoutId = setInterval(() => nextStep(), 1000)
-    // }
 }
 
 stopButton.onclick = () => {
     isPaused = true;
     stopButton.style.display = 'none';
     playButton.style.display = 'block';
-    // clearTimeout(state.timeoutId);
-    // state.timeoutId = 0;
 }
 
 codeToggleButton.onclick = () => {
     isCodeShow = !isCodeShow;
     if (isCodeShow) {
         codeBlock.style.display = 'block';
-        if (window.innerWidth == 1280) codeToggleButton.style.bottom = '448px';
+        if (window.innerWidth >= 1280) codeToggleButton.style.bottom = '448px';
         else codeToggleButton.style.bottom = '360px';
         codeToggleIconUp.style.display = 'none';
         codeToggleIconDown.style.display = 'block';

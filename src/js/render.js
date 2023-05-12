@@ -1,6 +1,34 @@
 var data = [];
 var algoTracerItems;
 
+var sideContent = document.querySelector('.side-content');
+var mainContent = document.querySelector('.main-content');
+var mediaControls = document.querySelector('.media-controls');
+
+function checkOrientation() {
+    let isPortrait = window.matchMedia('(orientation: portrait)').matches;
+    let isLandscape = window.matchMedia('(orientation: landscape)').matches;
+    if (isPortrait) {
+        sideContent.style.display = 'block';
+        mainContent.style.display = 'none';
+        mediaControls.classList.add('d-none');
+        console.log("portrait")
+    }
+    else if (isLandscape) {
+        sideContent.style.display = 'none';
+        mainContent.style.display = 'block';
+        mediaControls.classList.remove('d-none');
+        console.log("landscape")
+    }
+}
+
+checkOrientation();
+
+window.addEventListener("resize", function () {
+    checkOrientation();
+});
+
+
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -156,37 +184,32 @@ async function drawHoles(range) {
 
 function moveAnimate(element, newParent,
     slideAnimationSpeed/*=800*/, spacerAnimationSpeed/*=600*/) {
-    //Allow passing in either a jQuery object or selector
     if (!element.classList.contains('in-hole')) {
         element = $(element);
         newParent = $(newParent);
         slideAnimationSpeed = slideAnimationSpeed || 800;
         spacerAnimationSpeed = spacerAnimationSpeed || 600;
-
         var oldOffset = element.offset();
         var tempOutgoing = element.clone().insertAfter(element);
-        tempOutgoing.hide(); //Don't take up space yet so 'newOffset' can be calculated correctly
+        tempOutgoing.hide();
         element.appendTo(newParent);
         var newOffset = element.offset();
-
         var tempMover = element.clone().appendTo('body');
         tempMover.css({
             'position': 'absolute',
             'left': oldOffset.left,
             'top': oldOffset.top,
             'z-index': 1000,
-            'margin': 0 //Necessary for animation alignment if the source element had margin
+            'margin': 0
         });
-
         element.hide();
-        element.show(spacerAnimationSpeed).css('visibility', 'hidden'); //Smoothly grow space at the target
-
+        element.show(spacerAnimationSpeed).css('visibility', 'hidden');
         tempMover.animate({ 'top': newOffset.top, 'left': newOffset.left }, slideAnimationSpeed, function () {
             element.css('visibility', 'visible');
             tempMover.remove();
         });
         tempOutgoing.show().css('visibility', 'hidden');
-        tempOutgoing.hide(spacerAnimationSpeed, function () { tempOutgoing.remove() }); //smoothly shrink space at the source
+        tempOutgoing.hide(spacerAnimationSpeed, function () { tempOutgoing.remove() });
     }
 }
 
@@ -242,6 +265,10 @@ async function selectedLine(lineNumber) {
     $(`.line-${lineNumber + 1}`).addClass('selected');
     await sleep(200);
     // }
+}
+
+async function disabledLine(lineNumber) {
+    $(`.line-${lineNumber}`).addClass('disabled');
 }
 
 // async function selectedLineWith2Lock(lineNumber) {

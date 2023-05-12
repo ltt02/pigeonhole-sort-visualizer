@@ -99,6 +99,11 @@ main {
     background-color: #333;
 }
 
+#editor>.disabled {
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+
+
 .line-number {
     left: 0;
     width: 21px;
@@ -166,4 +171,13 @@ main {
 
 .algo-trace-holes {
     margin-top: 16px;
+}
+
+.author {
+    margin-top: 2px;
+}
+
+.author-text {
+    font-size: 0.8rem;
+    color: #fff;
 }
