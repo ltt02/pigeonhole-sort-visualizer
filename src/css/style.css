@@ -21,7 +21,7 @@
     }
 }
 
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 901px) and (max-width: 1280px) {
     #editor {
         right: -17px;
         bottom: 48px;
@@ -34,10 +34,19 @@
 
     #play-btn,
     #stop-btn {
+        margin-left: 8%;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    #play-btn,
+    #stop-btn {
         margin-left: 25%;
         cursor: pointer;
     }
 }
+
 
 body {
     /* background-color: #ccc; */
@@ -173,11 +182,15 @@ main {
     margin-top: 16px;
 }
 
-.author {
+.author, .manual {
     margin-top: 2px;
 }
 
-.author-text {
+.manual-text {
+    cursor: pointer;
+}
+
+.author-text, .manual-text {
     font-size: 0.8rem;
     color: #fff;
 }

@@ -25,12 +25,48 @@
                 <li class="nav-item flex-grow-1">
                     <a class="navbar-brand" href="#">Pigeonhole Sort Visualizer</a>
                 </li>
-                <li class="nav-item flex-grow-1 text-end author">
-                    <span class="navbar-text author-text">Made by Ly Tan Tai B2003917</span>
-                </li>
+                <div class="d-flex">
+                    <li class="nav-item text-end manual mx-3">
+                        <span class="navbar-text manual-text" data-bs-toggle="modal"
+                            data-bs-target="#myModal">How to use?</a>
+                    </li>
+                    <span class="text-light">|</span>
+                    <li class="nav-item flex-grow-1 text-end author mx-3">
+                        <span class="navbar-text author-text">Made by Ly Tan Tai B2003917</span>
+                    </li>
+                </div>
             </ul>
         </div>
     </nav>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">How to use this tool?</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align: justify;">
+                    <ol class="" style=" padding-right: 16px;">
+                        <li>First, you have to type your input array on the input element. If you want to use your own file, you can click on <strong>"Choose File"</strong> button to upload your file, and your file content will be add to the input element.</li>
+                        <li>You have to click on <strong>"Import"</strong> button to add the input data for the algorithm.</li>
+                        <li>Finally, you just only click on <strong>Play</strong> button on the middle of the footer to start the algorithm.</li>
+                    </ol>
+                    <p><strong>Note:</strong> You can also pause the algorithm by clicking on <strong>Pause</strong> button and control the speed of the algorithm with the speed slider on the bottom right.</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <div class="container text-center side-content" style="display: none; margin-top: 86%;">
         <h3>Please rotate your device to landscape mode for a better experience</h3>
